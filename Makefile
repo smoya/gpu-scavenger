@@ -1,4 +1,4 @@
-BIN_DIR = ./bin
+BIN_DIR = bin
 GOLANGCILINT_VERSION = 1.39.0
 
 .PHONY: all
@@ -8,7 +8,7 @@ $(BIN_DIR)/golangci-lint: $(BIN_DIR)
 	@wget -O - -q https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | BINDIR=$(@D) sh -s v$(GOLANGCILINT_VERSION) > /dev/null 2>&1
 
 $(BIN_DIR):
-	mkdir bin
+	mkdir -p $(BIN_DIR)
 
 .PHONY: lint
 lint: $(BIN_DIR)/golangci-lint
